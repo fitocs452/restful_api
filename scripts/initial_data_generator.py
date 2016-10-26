@@ -123,11 +123,10 @@ m2 = Marca(
 m1.save()
 m2.save()
 
-for i in range(2):
+for i in range(1000):
     if i < 100:
         a=Automovil(marca=m2,color=random_color(),modelo=random_modelo(),linea=random_linea_mazda(),placa=random_placa(),polarizado=random_polarizado())
         a.save()
         continue;
     a=Automovil(marca=m1,color=random_color(),modelo=random_modelo(),linea=random_linea_toyota(),placa=random_placa(),polarizado=random_polarizado())
     a.save()
-    # a.save()
