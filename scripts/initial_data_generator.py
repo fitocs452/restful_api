@@ -1,14 +1,17 @@
 from automoviles.models import Automovil, Marca
 
-import random, string
+import random
+import string
 from random import randint
 
 
 def random_polarizado():
     return bool(random.getrandbits(1))
 
+
 def random_modelo():
     return randint(1975, 2016)
+
 
 def random_color():
     colores = [
@@ -74,6 +77,7 @@ def random_color():
     ]
     return colores[randint(0, 58)]
 
+
 def random_linea_mazda():
     lineas = [
         'Mazda 2',
@@ -85,6 +89,7 @@ def random_linea_mazda():
         'CX-9'
     ]
     return random.choice(lineas)
+
 
 def random_linea_toyota():
     lineas = [
@@ -99,6 +104,7 @@ def random_linea_toyota():
     ]
     return random.choice(lineas)
 
+
 def random_placa():
     l1 = random.choice(string.ascii_uppercase)
     l2 = random.choice(string.ascii_uppercase)
@@ -107,6 +113,7 @@ def random_placa():
     n2 = str(randint(0, 9))
     n3 = str(randint(0, 9))
     return 'P' + l1 + l2 + l3 + n1 + n2 + n3
+
 
 m1 = Marca(
     nombre='Toyota',
@@ -125,8 +132,22 @@ m2.save()
 
 for i in range(1000):
     if i < 100:
-        a=Automovil(marca=m2,color=random_color(),modelo=random_modelo(),linea=random_linea_mazda(),placa=random_placa(),polarizado=random_polarizado())
+        a = Automovil(
+            marca=m2,
+            color=random_color(),
+            modelo=random_modelo(),
+            linea=random_linea_mazda(),
+            placa=random_placa(),
+            polarizado=random_polarizado()
+        )
         a.save()
-        continue;
-    a=Automovil(marca=m1,color=random_color(),modelo=random_modelo(),linea=random_linea_toyota(),placa=random_placa(),polarizado=random_polarizado())
+        continue
+    a = Automovil(
+        marca=m1,
+        color=random_color(),
+        modelo=random_modelo(),
+        linea=random_linea_toyota(),
+        placa=random_placa(),
+        polarizado=random_polarizado()
+    )
     a.save()
